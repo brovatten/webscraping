@@ -1,6 +1,7 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import re
+import popupJobs
 from selenium import webdriver
 
 
@@ -94,8 +95,8 @@ def printFilteredJobs(job_dict):
 
 my_url = 'https://se.indeed.com/jobb?q=Internship&start=0'
 currentpage = 0
-required_key_words = ['are']
-preferred_key_words = ['cations']
+required_key_words = ['']
+preferred_key_words = ['data science', 'machine learning', 'internship']
 job_list = []
 
 while True:
@@ -112,4 +113,5 @@ while True:
 
 job_dict = filtrateJobs_KeyWords(job_list, preferred_key_words, required_key_words)
 printFilteredJobs(job_dict)
+popupJobs.startJobsSites(job_dict)
 ###################################################
